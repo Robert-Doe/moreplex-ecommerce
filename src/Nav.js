@@ -7,7 +7,7 @@ import logo from './logo.png';
 import './App.css'
 import {NavLink} from 'react-router-dom';
 
-const nav = (props) => {
+const nav = () => {
     const activeNavItem={
         color: 'green'
     }
@@ -50,7 +50,7 @@ const nav = (props) => {
                     <li className="nav-item">
                         <NavLink activeStyle={activeNavItem} className="nav-link" exact to="/cart" ><i
                             className='fa fa-shopping-cart'></i>
-                            <span className='badge badge-warning' id='lblCartCount'>{props.count}</span></NavLink>
+                            <span className='badge badge-warning' id='lblCartCount'>0</span></NavLink>
                     </li>
                 </ul>
             </div>

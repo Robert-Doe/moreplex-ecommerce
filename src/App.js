@@ -13,11 +13,11 @@ const style={
     backgroundColor:'salmon'
 }
 function App() {
-    const [count,setCount]=useState(JSON.parse(localStorage.getItem('cart')).length)
+    //const [count,setCount]=useState(JSON.parse(localStorage.getItem('cart')).length)
   return (
     <Router>
           <div className='App'>
-            <Nav count={count}/>
+            <Nav />
             <div style={style}>
                 <Switch>
                     <Route path='/' exact component={Home}/>
