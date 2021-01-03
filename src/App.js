@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Nav from './Nav';
+import Footer from './Footer';
+import React,{useState} from 'react'
+import About from "./About";
+import Shop from './Shop'
+import Home from './Home'
+import Cart from './Cart'
 
+import {BrowserRouter as Router,Switch, Route} from 'react-router-dom'
+
+const style={
+    backgroundColor:'salmon'
+}
 function App() {
+    const [count,setCount]=useState(JSON.parse(localStorage.getItem('cart')).length)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+          <div className='App'>
+            <Nav count={count}/>
+            <div style={style}>
+                <Switch>
+                    <Route path='/' exact component={Home}/>
+                    <Route path='/about' component={About} />
+                    <Route path='/shop' component={Shop}/>
+                    {/*<Route path='/cart' component={Cart}/>*/}
+                </Switch>
+
+            </div>
+            <Footer/>
+         </div>
+    </Router>
   );
 }
+
 
 export default App;
